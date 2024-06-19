@@ -50,6 +50,7 @@ public class Mediator{
         }
     }
 
+    //課題3-1
     public void setLineColor(Color lineColor) {
         if (selectedDrawing != null) {
             selectedDrawing.setLineColor(lineColor);
@@ -64,6 +65,13 @@ public class Mediator{
         }
     }
 
+    public void setLineWidth(int lineWidth) {
+        if (selectedDrawing != null) {
+            selectedDrawing.setLineWidth(lineWidth);
+            repaint();
+        }
+    }
+/***************/
 
 
 

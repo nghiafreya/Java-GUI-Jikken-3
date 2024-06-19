@@ -4,7 +4,7 @@ public class StateManager {
     private boolean isDashed;
     private boolean isShadow;
     private Mediator mediator;
-    //private boolean isSelected;
+
 
     public StateManager(MyCanvas canvas){
         this.canvas = canvas;

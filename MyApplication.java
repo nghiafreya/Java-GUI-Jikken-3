@@ -10,8 +10,11 @@ public class MyApplication extends JFrame{
     MyCanvas canvas;
 
     private JMenuBar menuBar;
-    private JMenu FillColorMenu, LineColorMenu;
-    private JMenuItem redFill, blueFill, greenFill, redLine, blueLine, greenLine, blackLine;
+    private JMenu FillColorMenu, LineColorMenu, LineWidthMenu;
+    private JMenuItem redFill, blueFill, greenFill;
+    private JMenuItem redLine, blueLine, greenLine, blackLine;
+    private JMenuItem lineWidth1, lineWidth5, lineWidth10;
+
     Mediator med;
 
     //constructor
@@ -60,7 +63,7 @@ public class MyApplication extends JFrame{
         function.add(selectButton);
 
 
-        DeleteButton deleteButton = new DeleteButton(stateManager, med);
+        DeleteButton deleteButton = new DeleteButton(stateManager);
         function.add(deleteButton);
 
 
@@ -159,8 +162,23 @@ public class MyApplication extends JFrame{
         greenLine.addActionListener(new LineColorListener(Color.GREEN));
         blackLine.addActionListener(new LineColorListener(Color.BLACK));
 
+        //課題3-2 Line Width
+        //Line Width
+        LineWidthMenu = new JMenu("Line Width");
+        lineWidth1 = new JMenuItem("Line Width: 1");
+        lineWidth5 = new JMenuItem("Line Width: 5");
+        lineWidth10 = new JMenuItem("Line Width: 10");
+        LineWidthMenu.add(lineWidth1);
+        LineWidthMenu.add(lineWidth5);
+        LineWidthMenu.add(lineWidth10);
+        lineWidth1.addActionListener(new LineWidthListener(1));
+        lineWidth5.addActionListener(new LineWidthListener(5));
+        lineWidth10.addActionListener(new LineWidthListener(10));
+
         menuBar.add(FillColorMenu);
         menuBar.add(LineColorMenu);
+        menuBar.add(LineWidthMenu);
+        
     }
 
     
@@ -187,6 +205,18 @@ public class MyApplication extends JFrame{
         }
         public void actionPerformed(ActionEvent e) {
                 med.setLineColor(lineColor);
+        }    
+    } 
+
+    class LineWidthListener implements ActionListener {
+        int lineWidth;
+
+        //constructor
+        LineWidthListener(int lineWidth) {
+            this.lineWidth = lineWidth;
+        }
+        public void actionPerformed(ActionEvent e) {
+                med.setLineWidth(lineWidth);
         }    
     } 
     /**************** */
