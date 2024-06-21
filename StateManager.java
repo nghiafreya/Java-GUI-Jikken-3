@@ -35,7 +35,7 @@ public class StateManager {
         return isShadow;
     }
 
-    //Task 3-1
+    //課題3-1
 
     // Select
     public void setSelected(int x, int y) {

@@ -1,17 +1,6 @@
 import java.awt.*;
 public class MyOval extends MyDrawing {
 
-    // /*課題2-1 */
-    // public MyOval (int xpt, int ypt) {
-    //     super();
-    //     setLocation(xpt, ypt);
-    
-
-    /*課題2-2 */
-    // public MyOval (int xpt, int ypt, int width, int height) {
-    //     super();
-    //     setLocation(xpt, ypt);
-    //     setSize(width, height);
 
     /*課題2-3 */    
     public MyOval (int xpt, int ypt, int width, int height, Color lineColor, Color fillColor) {
@@ -59,10 +48,15 @@ public class MyOval extends MyDrawing {
 
         /*Create real Oval */
         g2.setColor (getFillColor());
-        //g2.fillOval (x, y, 40, 20); //課題2-1
         g2.fillOval (x, y, w, h); 
         g2.setColor (getLineColor());
-        //g2.drawOval (x, y, 40, 20); //課題2-1
         g2.drawOval (x, y, w, h);
+
+        //draw the "select rectangle"
+        if (isSelected) {
+            super.draw(g);
+        }  
+
+
     }
 }

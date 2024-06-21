@@ -1,18 +1,6 @@
 import java.awt.*;
 
 public class MyHendecagonal extends MyDrawing {
-        // /*課題2-1 */
-    // public MyHendecagonal (int xpt, int ypt) {
-    //     super();
-    //     setLocation(xpt, ypt);
-    /******** */
-
-    /*課題2-2 */
-    // public MyHendecagonal (int xpt, int ypt, int width, int height) {
-    //     super();
-    //     setLocation(xpt, ypt);
-    //     setSize(width, height);
-    /******** */
     
     /*課題2-3 */
     public MyHendecagonal(int xpt, int ypt, int width, int height, Color lineColor, Color fillColor) {
@@ -65,6 +53,11 @@ public class MyHendecagonal extends MyDrawing {
         g2.fillPolygon (hende);
         g2.setColor (getLineColor());
         g2.drawPolygon(hende);
+
+        //draw the "select rectangle"
+        if (isSelected) {
+            super.draw(g);
+        }  
     }
 
     private Polygon createHende(int x, int y, int w, int h) {

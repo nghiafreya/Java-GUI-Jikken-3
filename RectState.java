@@ -15,19 +15,6 @@ public class RectState extends State {
     //Set what will happen after using mouse in each state
 
     public void mouseDown (int x, int y) {
-        /*課題2-1 */
-        // stateManager.addDrawing(new MyRectangle(x, y));
-        /************ */
-
-        /*課題2-2 */
-        // old_x = x;
-        // old_y = y;
-
-        // currentRect = new MyRectangle(x, y, 0, 0);
-        // /*dash */
-        // currentRect.setDashed(stateManager.getDashed()); 
-        // stateManager.addDrawing(currentRect);
-
         /*課題2-3 */
         old_x = x;
         old_y = y;

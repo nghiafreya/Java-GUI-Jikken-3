@@ -1,6 +1,3 @@
-import java.awt.Color;
-
-
 public class SelectState extends State {
     StateManager stateManager;
     int Chosen_point_x;

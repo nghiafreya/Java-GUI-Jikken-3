@@ -1,18 +1,7 @@
 import java.awt.*;
 
 public class MyIsosceles extends MyDrawing {
-        // /*課題2-1 */
-    // public MyIsosceles (int xpt, int ypt) {
-    //     super();
-    //     setLocation(xpt, ypt);
-    /******** */
 
-    /*課題2-2 */
-    // public MyIsosceles (int xpt, int ypt, int width, int height) {
-    //     super();
-    //     setLocation(xpt, ypt);
-    //     setSize(width, height);
-    /******** */
     
     /*課題2-3 */
     public MyIsosceles (int xpt, int ypt, int width, int height, Color lineColor, Color fillColor) {
@@ -65,6 +54,11 @@ public class MyIsosceles extends MyDrawing {
         g2.fillPolygon (isos);
         g2.setColor (getLineColor());
         g2.drawPolygon(isos);
+
+        //draw the "select rectangle"
+        if (isSelected) {
+            super.draw(g);
+        }  
     }
 
     private Polygon createIsos(int x, int y, int w, int h) {

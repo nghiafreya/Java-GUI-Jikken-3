@@ -44,13 +44,32 @@ public class Mediator{
         return selectedDrawing;
     }
 
+    public void setSelected(int x, int y) {
+        if (selectedDrawing != null) {
+            selectedDrawing.setSelected(false);
+        }
+        selectedDrawing = null;
+        for (int i = drawings.size() - 1; i >= 0; i--) {
+            MyDrawing d = drawings.get(i);
+            if (d.contains(x, y)) {
+                selectedDrawing = d;
+                selectedDrawing.setSelected(true);
+                break;
+            } else { //when the selected point (x, y) doesn't belong to any shapes
+                //do nothing
+            }
+        }
+    }
+
+    /*******************/
+    //課題3-1
     public void move(int dx, int dy) {
         if (selectedDrawing != null) {
             selectedDrawing.move(dx, dy);
         }
     }
 
-    //課題3-1
+   
     public void setLineColor(Color lineColor) {
         if (selectedDrawing != null) {
             selectedDrawing.setLineColor(lineColor);
@@ -74,24 +93,6 @@ public class Mediator{
 /***************/
 
 
-
-
-    public void setSelected(int x, int y) {
-        if (selectedDrawing != null) {
-            selectedDrawing.setSelected(false);
-        }
-        selectedDrawing = null;
-        for (int i = drawings.size() - 1; i >= 0; i--) {
-            MyDrawing d = drawings.get(i);
-            if (d.contains(x, y)) {
-                selectedDrawing = d;
-                selectedDrawing.setSelected(true);
-                break;
-            } else { //when the selected point (x, y) doesn't belong to any shapes
-                //do nothing
-            }
-        }
-    }
 
     MyDrawing buffer = null; // Cut, Copyバッファ
 
@@ -138,6 +139,4 @@ public class Mediator{
         }
 
     }
-
-
 }
